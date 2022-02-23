@@ -6,9 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Amir Shariat",
   "license": "ISC",
   "dependencies": {
     "inquirer": "^6.5.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AShariat/professional-readme-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AShariat/professional-readme-generator/issues"
+  },
+  "homepage": "https://github.com/AShariat/professional-readme-generator#readme"
 }
