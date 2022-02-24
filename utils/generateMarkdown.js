@@ -36,6 +36,10 @@ ${tableOfContents(table)}
 ## Installation
 
 * ${header.installation}
+
+## Usage
+
+* ${header.usage}
 `;
 };
 

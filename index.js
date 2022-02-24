@@ -4,7 +4,7 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-const questions = ["What is your project's title? (Required)", "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: What was your motivation? Why did you build this project? What problem does it solve? What did you learn? (Required)", "Would you like to add Table of Contents for this project? (Optional)", "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. (Required)"];
+const questions = ["What is your project's title? (Required)", "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: What was your motivation? Why did you build this project? What problem does it solve? What did you learn? (Required)", "Would you like to add Table of Contents for this project? (Optional)", "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. (Required)", "Provide instructions and examples for use. (Required)"];
 
 const promptQuestions = () => {
   return inquirer.prompt([
@@ -48,7 +48,20 @@ const promptQuestions = () => {
         if (installationInput) {
           return true;
         } else {
-          console.log("Please enter your project's description!");
+          console.log("Please provide the steps required to install your project!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'usage',
+      message: questions[4],
+      validate: usageInput => {
+        if (usageInput) {
+          return true;
+        } else {
+          console.log("Please provide instructions and examples for use!");
           return false;
         }
       }
