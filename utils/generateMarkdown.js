@@ -10,11 +10,25 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
+const tableOfContents = tableText => {
+  if (!tableText) {
+    return '';
+  }
+  return `
+## Table of Contents
+  `;
+};
+
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+module.exports = function generateMarkdown(data) {
+  const { table, ...header } = data;
+  return `# ${header.title}
 
-`;
-}
+## Description
 
-module.exports = generateMarkdown;
+${header.description}
+${tableOfContents(table)}
+  `;
+};
+
+// module.exports = generateMarkdown;
