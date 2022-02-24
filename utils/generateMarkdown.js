@@ -16,7 +16,12 @@ const tableOfContents = tableText => {
   }
   return `
 ## Table of Contents
-  `;
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+`;
 };
 
 // TODO: Create a function to generate markdown for README
@@ -26,9 +31,12 @@ module.exports = function generateMarkdown(data) {
 
 ## Description
 
-${header.description}
+* ${header.description}
 ${tableOfContents(table)}
-  `;
+## Installation
+
+* ${header.installation}
+`;
 };
 
 // module.exports = generateMarkdown;
