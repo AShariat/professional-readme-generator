@@ -1,8 +1,8 @@
-# A
+# Amir
 
 ## Description
 
-* S
+* Shariat
 
 ## Table of Contents
 
@@ -21,4 +21,8 @@
 
 ## Credits
 
-* R
+* Lucy
+
+## License
+
+* MIT

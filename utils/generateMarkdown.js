@@ -44,6 +44,10 @@ ${tableOfContents(table)}
 ## Credits
 
 * ${header.credits}
+
+## License
+
+* ${header.license}
 `;
 };
 

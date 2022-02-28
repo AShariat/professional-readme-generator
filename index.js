@@ -4,7 +4,7 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-const questions = ["What is your project's title? (Required)", "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: What was your motivation? Why did you build this project? What problem does it solve? What did you learn? (Required)", "Would you like to add Table of Contents for this project? (Optional)", "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. (Required)", "Provide instructions and examples for use. (Required)", "List your collaborators, if any, with links to their GitHub profiles. (Required)"];
+const questions = ["What is your project's title? (Required)", "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: What was your motivation? Why did you build this project? What problem does it solve? What did you learn? (Required)", "Would you like to add Table of Contents for this project? (Optional)", "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. (Required)", "Provide instructions and examples for use. (Required)", "List your collaborators, if any, with links to their GitHub profiles. (Required)", "Please choose a license for your project. If you need help choosing a license, refer to https://choosealicense.com. (Required)"];
 
 const promptQuestions = () => {
   return inquirer.prompt([
@@ -75,6 +75,19 @@ const promptQuestions = () => {
           return true;
         } else {
           console.log("Please list your collaborators with links to their GitHub profiles!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'license',
+      message: questions[6],
+      validate: licenseInput => {
+        if (licenseInput) {
+          return true;
+        } else {
+          console.log("Please choose a license for your project!");
           return false;
         }
       }
