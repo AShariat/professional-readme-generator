@@ -50,6 +50,8 @@ ${tableOfContents(table)}
 * ${header.contribution}
 
 ## Tests
+
+* ${header.tests}
 `;
 };
 

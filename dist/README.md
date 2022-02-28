@@ -25,6 +25,8 @@
 
 ## How to Contribute
 
-* https://www.contributor-covenant.org
+* 
 
 ## Tests
+
+* 789
