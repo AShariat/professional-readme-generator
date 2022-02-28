@@ -5,11 +5,13 @@
 * Shariat
 
 ## Table of Contents
-
+  
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
 - [License](#license)
+- [Contribution](#contribution)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Installation
 
@@ -20,16 +22,16 @@
 * 456
 
 ## License
-
+  
 * MIT
 
-## How to Contribute
+## Contribution
 
 * 789
 
 ## Tests
 
-* 000
+* 000    
 
 ## Questions
 
