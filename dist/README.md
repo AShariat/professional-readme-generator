@@ -36,4 +36,4 @@
 ## Questions
 
 * https://github.com/ashariat
-* amirshariat1987@gmail.com
+* You can reach me at amirshariat1987@gmail.com with additional questions!

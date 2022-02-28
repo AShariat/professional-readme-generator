@@ -103,6 +103,5 @@ ${renderLicenseSection(license)}${renderContributionSection(contribution)}${rend
 ## Questions
 
 * https://github.com/${github}
-* ${email}
-`;
+* You can reach me at ${email} with additional questions!`;
 };
