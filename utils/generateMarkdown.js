@@ -6,15 +6,103 @@ function renderLicenseBadge(license) {}
 // If there is no license, return an empty string
 function renderLicenseLink(license) {}
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+module.exports = function generateMarkdown(data) {
+  const { table, license, contribution, tests, github, email, ...header } = data;
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
+  const tableLicense = tableLicenseCheck => {
+    if (!tableLicenseCheck) {
+      return '';
+    }
+    return `
+- [License](#license)`;
+  };
 
+  const tableContribution = tableContributionCheck => {
+    if (!tableContributionCheck) {
+      return '';
+    }
+    return `
+- [Contribution](#contribution)`;
+  };
+
+  const tableTests = tableTestsCheck => {
+    if (!tableTestsCheck) {
+      return '';
+    }
+    return `
+- [Tests](#tests)`;
+  };
+
+  const tableQuestions = (tableGithubCheck, tableEmailCheck) => {
+    if (!tableGithubCheck && !tableEmailCheck) {
+      return '';
+    }
+    return `
+- [Questions](#questions)`;
+  };
+
+  const tableOfContents = tableText => {
+    if (!tableText) {
+      return '';
+    }
+    return `
+## Table of Contents
+  
+- [Installation](#installation)
+- [Usage](#usage)${tableLicense(license)}${tableContribution(contribution)}${tableTests(tests)}${tableQuestions(github, email)}
 `;
-}
+  };
 
-module.exports = generateMarkdown;
+  const renderLicenseSection = renderLicense => {
+    if (!renderLicense) {
+      return '';
+    }
+    return `
+## License
+  
+* ${license}
+`;
+  };
+
+  const renderContributionSection = renderContribution => {
+    if (!renderContribution) {
+      return '';
+    }
+    return `
+## Contribution
+
+* ${contribution}
+`;
+  };
+
+  const renderTestsSection = renderTests => {
+    if (!renderTests) {
+      return '';
+    }
+    return `
+## Tests
+
+* ${tests}    
+`;
+  };
+
+  return `# ${header.title}
+
+## Description
+
+* ${header.description}
+${tableOfContents(table)}
+## Installation
+
+* ${header.installation}
+
+## Usage
+
+* ${header.usage}
+${renderLicenseSection(license)}${renderContributionSection(contribution)}${renderTestsSection(tests)}
+## Questions
+
+* https://github.com/${github}
+* ${email}
+`;
+};
