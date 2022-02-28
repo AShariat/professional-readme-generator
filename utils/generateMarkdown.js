@@ -40,6 +40,10 @@ ${tableOfContents(table)}
 ## Usage
 
 * ${header.usage}
+
+## Credits
+
+* ${header.credits}
 `;
 };
 

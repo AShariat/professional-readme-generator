@@ -4,7 +4,7 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-const questions = ["What is your project's title? (Required)", "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: What was your motivation? Why did you build this project? What problem does it solve? What did you learn? (Required)", "Would you like to add Table of Contents for this project? (Optional)", "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. (Required)", "Provide instructions and examples for use. (Required)"];
+const questions = ["What is your project's title? (Required)", "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: What was your motivation? Why did you build this project? What problem does it solve? What did you learn? (Required)", "Would you like to add Table of Contents for this project? (Optional)", "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. (Required)", "Provide instructions and examples for use. (Required)", "List your collaborators, if any, with links to their GitHub profiles. (Required)"];
 
 const promptQuestions = () => {
   return inquirer.prompt([
@@ -62,6 +62,19 @@ const promptQuestions = () => {
           return true;
         } else {
           console.log("Please provide instructions and examples for use!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'credits',
+      message: questions[5],
+      validate: creditsInput => {
+        if (creditsInput) {
+          return true;
+        } else {
+          console.log("Please list your collaborators with links to their GitHub profiles!");
           return false;
         }
       }
