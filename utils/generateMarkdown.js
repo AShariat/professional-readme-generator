@@ -52,6 +52,11 @@ ${tableOfContents(table)}
 ## Tests
 
 * ${header.tests}
+
+## Questions
+
+* https://github.com/${header.github}
+* ${header.email}
 `;
 };
 

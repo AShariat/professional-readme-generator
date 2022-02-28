@@ -4,7 +4,7 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // TODO: Create an array of questions for user input
-const questions = ["What is your project's title? (Required)", "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: What was your motivation? Why did you build this project? What problem does it solve? What did you learn? (Required)", "Would you like to add Table of Contents for this project? (Optional)", "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. (Required)", "Provide instructions and examples for use. (Required)", "Please choose a license for your project. If you need help choosing a license, refer to https://choosealicense.com. (Required)", "If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. https://www.contributor-covenant.org is an industry standard, but you can always write your own if you'd prefer. (Optional)", "Go the extra mile and write tests for your application. Then provide examples on how to run them here. (Optional)"];
+const questions = ["What is your project's title? (Required)", "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: What was your motivation? Why did you build this project? What problem does it solve? What did you learn? (Required)", "Would you like to add Table of Contents for this project? (Optional)", "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running. (Required)", "Provide instructions and examples for use. (Required)", "Choose a license for your project. If you need help choosing a license, refer to https://choosealicense.com. (Required)", "If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. https://www.contributor-covenant.org is an industry standard, but you can always write your own if you'd prefer. (Optional)", "Go the extra mile and write tests for your application. Then provide examples on how to run them here. (Optional)", "Provide your GitHub username. (Optional)", "Provide your email address. (Optional)"];
 
 const promptQuestions = () => {
   return inquirer.prompt([
@@ -88,6 +88,16 @@ const promptQuestions = () => {
       type: 'input',
       name: 'tests',
       message: questions[7],
+    },
+    {
+      type: 'input',
+      name: 'github',
+      message: questions[8],
+    },
+    {
+      type: 'input',
+      name: 'email',
+      message: questions[9],
     }
   ])
   .then(readmeData => {
