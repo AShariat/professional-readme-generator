@@ -41,13 +41,15 @@ ${tableOfContents(table)}
 
 * ${header.usage}
 
-## Credits
-
-* ${header.credits}
-
 ## License
 
 * ${header.license}
+
+## How to Contribute
+
+* ${header.contribution}
+
+## Tests
 `;
 };
 
