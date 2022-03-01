@@ -23,6 +23,8 @@ First you need to clone this repository then use the terminal inside the root di
 
 I have included a video file that shows you how it works.
 
+https://user-images.githubusercontent.com/88262115/156253482-4afb9d4d-7fba-4b40-b96d-6a6f91bc446c.mp4
+
 ## License
 
 This Application Is Licensed Under ***MIT License***
