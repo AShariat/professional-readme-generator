@@ -1,39 +1,13 @@
-# Amir
+# A
 
 ## Description
 
-* Shariat
-
-## Table of Contents
-  
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contribution](#contribution)
-- [Tests](#tests)
-- [Questions](#questions)
+* S
 
 ## Installation
 
-* 123
+* 1
 
 ## Usage
 
-* 456
-
-## License
-  
-* MIT
-
-## Contribution
-
-* 789
-
-## Tests
-
-* 000    
-
-## Questions
-
-* https://github.com/ashariat
-* You can reach me at amirshariat1987@gmail.com with additional questions!
+* 2

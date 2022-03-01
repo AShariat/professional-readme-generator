@@ -86,6 +86,28 @@ module.exports = function generateMarkdown(data) {
 `;
   };
 
+  const renderQuestionsSection = (renderGithub, renderEmail) => {
+    if (!renderGithub && !renderEmail) {
+      return '';
+    } else if (renderGithub && !renderEmail) {
+      return `
+## Questions
+  
+* https://github.com/${github}`;
+    } else if (!renderGithub && renderEmail) {
+      return `
+## Questions
+  
+* You can reach me at ${email} with additional questions!`;
+    } else {
+      return `
+## Questions
+  
+* https://github.com/${github}
+* You can reach me at ${email} with additional questions!`;
+    }
+  };
+
   return `# ${header.title}
 
 ## Description
@@ -99,9 +121,5 @@ ${tableOfContents(table)}
 ## Usage
 
 * ${header.usage}
-${renderLicenseSection(license)}${renderContributionSection(contribution)}${renderTestsSection(tests)}
-## Questions
-
-* https://github.com/${github}
-* You can reach me at ${email} with additional questions!`;
+${renderLicenseSection(license)}${renderContributionSection(contribution)}${renderTestsSection(tests)}${renderQuestionsSection(github, email)}`;
 };
