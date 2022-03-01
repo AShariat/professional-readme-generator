@@ -1,13 +1,23 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
   const replacedSpacesLicense = license.replaceAll(" ", "%20");
-  return `![](https://img.shields.io/badge/License-${replacedSpacesLicense}-blue)
-  `
+  if (license == 'None') {
+    return '';
+  }
+  return `
+![](https://img.shields.io/badge/License-${replacedSpacesLicense}-blue)
+`;
 };
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {};
+function renderLicenseSection(license) {
+  if (license == 'None') {
+    return '';
+  }
+  return `
+## License
+
+This Application Is Licensed Under ***${license}***
+`;
+};
 
 module.exports = function generateMarkdown(data) {
   const { table, installation, usage, contribution, tests, github, email, ...header } = data;
@@ -26,6 +36,14 @@ module.exports = function generateMarkdown(data) {
     }
     return `
 - [Usage](#usage)`;
+  };
+
+  const tableLicense = tableLicenseCheck => {
+    if (tableLicenseCheck == 'None') {
+      return '';
+    }
+    return `
+- [License](#license)`;
   };
 
   const tableContribution = tableContributionCheck => {
@@ -58,7 +76,7 @@ module.exports = function generateMarkdown(data) {
     }
     return `
 ## Table of Contents
-${tableInstallation(installation)}${tableUsage(usage)}${tableContribution(contribution)}${tableTests(tests)}${tableQuestions(github, email)}
+${tableInstallation(installation)}${tableUsage(usage)}${tableLicense(header.license)}${tableContribution(contribution)}${tableTests(tests)}${tableQuestions(github, email)}
 `;
   };
 
@@ -129,14 +147,9 @@ You can reach me at ${email} with additional questions!`;
   };
 
   return `# ${header.title}
-
+${renderLicenseBadge(header.license)}
 ## Description
 
 ${header.description}
-
-## License
-  
-${renderLicenseBadge(header.license)}
-This Application Is Licensed Under ***${header.license}***
-${tableOfContents(table)}${renderInstallationSection(installation)}${renderUsageSection(usage)}${renderContributionSection(contribution)}${renderTestsSection(tests)}${renderQuestionsSection(github, email)}`;
+${tableOfContents(table)}${renderInstallationSection(installation)}${renderUsageSection(usage)}${renderLicenseSection(header.license)}${renderContributionSection(contribution)}${renderTestsSection(tests)}${renderQuestionsSection(github, email)}`;
 };
