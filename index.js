@@ -87,7 +87,7 @@ const promptQuestions = () => {
 function writeToFile(fileName, data) {
   fs.writeFile('./dist/'+fileName+'.md', data, err => {
     if (err) throw err;
-    console.log("Readme complete!");
+    console.log("Readme Complete!");
   });
 };
 

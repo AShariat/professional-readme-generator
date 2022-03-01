@@ -23,8 +23,6 @@ First you need to clone this repository then use the terminal inside the root di
 
 I have included a video file that shows you how it works.
 
-![](assets\videos\Usage-Professional-README-Generator.mp4)
-
 ## License
 
 This Application Is Licensed Under ***MIT License***
