@@ -1,9 +1,12 @@
+// These are the packages needed for index.js.
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 
+// Here I listed the series of questions to be used to prompt user.
 const questions = ["What is your project's title? (Required)", "Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide: What was your motivation? Why did you build this project? What problem does it solve? What did you learn? (Required)", "Choose a license for your project. If you need help choosing a license, refer to https://choosealicense.com.", "Would you like to add Table of Contents for this project?", "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.", "Provide instructions and examples for use.", "If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. https://www.contributor-covenant.org is an industry standard, but you can always write your own if you'd prefer.", "Go the extra mile and write tests for your application. Then provide examples on how to run them here.", "Provide your GitHub username.", "Provide your email address."];
 
+// This code block uses inquirer package to prompt user and get answer for each prompt.
 const promptQuestions = () => {
   return inquirer.prompt([
     {
@@ -80,13 +83,15 @@ const promptQuestions = () => {
   });
 };
 
+// This function uses fs module to create .md file.
 function writeToFile(fileName, data) {
   fs.writeFile('./dist/'+fileName+'.md', data, err => {
     if (err) throw err;
-    console.log("Readme complete!");
+    console.log("Readme Complete!");
   });
 };
 
+// This function gets called when user runs index.js and runs other functions in order they are needed.
 function init() {
   promptQuestions()
   .then(readmeData => {
