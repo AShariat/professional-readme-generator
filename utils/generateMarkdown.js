@@ -1,4 +1,6 @@
+// This function checks to see if a license has been choosen by the user then creates a license badge and places it inside the README.md file.
 function renderLicenseBadge(license) {
+  // I used this line of code to replace spaces with spacing method that browser understands so it doesn't give me error.
   const replacedSpacesLicense = license.replaceAll(" ", "%20");
   if (license == 'None') {
     return '';
@@ -8,6 +10,7 @@ function renderLicenseBadge(license) {
 `;
 };
 
+// This function checks to see if a license has been choosen by the user then creates a license declaration and places it inside the README.md file.
 function renderLicenseSection(license) {
   if (license == 'None') {
     return '';
@@ -19,6 +22,7 @@ This Application Is Licensed Under ***${license}***
 `;
 };
 
+// This is the main function that first deconstructs the data coming from inquirer prompt then depending on what questions are being answered by the user generates markdown file's template.
 module.exports = function generateMarkdown(data) {
   const { table, installation, usage, contribution, tests, github, email, ...header } = data;
 
