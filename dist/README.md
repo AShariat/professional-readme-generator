@@ -6,5 +6,6 @@ S
 
 ## License
   
-![](https://img.shields.io/badge/License-BSD%203_Clause%20"New"%20or%20"Revised"%20License-blue)
-This Application Is Licensed Under ***BSD 3_Clause "New" or "Revised" License***
+![](https://img.shields.io/badge/License-Creative%20Commons%20Zero%20v1.0%20Universal-blue)
+  
+This Application Is Licensed Under ***Creative Commons Zero v1.0 Universal***

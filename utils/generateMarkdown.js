@@ -1,7 +1,8 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
   const replacedSpacesLicense = license.replaceAll(" ", "%20");
-  return `![](https://img.shields.io/badge/License-${replacedSpacesLicense}-blue)`
+  return `![](https://img.shields.io/badge/License-${replacedSpacesLicense}-blue)
+  `
 };
 
 // TODO: Create a function that returns the license link
