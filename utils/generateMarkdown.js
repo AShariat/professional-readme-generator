@@ -142,6 +142,7 @@ You can reach me at ${email} with additional questions!`;
 ## Questions
   
 [GitHub](https://github.com/${github}/)
+
 You can reach me at ${email} with additional questions!`;
     }
   };
