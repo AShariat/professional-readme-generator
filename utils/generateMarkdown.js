@@ -1,13 +1,29 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {};
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {};
 
 module.exports = function generateMarkdown(data) {
-  const { table, license, contribution, tests, github, email, ...header } = data;
+  const { table, installation, usage, license, contribution, tests, github, email, ...header } = data;
+
+  const tableInstallation = tableInstallationCheck => {
+    if (!tableInstallationCheck) {
+      return '';
+    }
+    return `
+- [Installation](#installation)`;
+  };
+
+  const tableUsage = tableUsageCheck => {
+    if (!tableUsageCheck) {
+      return '';
+    }
+    return `
+- [Usage](#usage)`;
+  };
 
   const tableLicense = tableLicenseCheck => {
     if (!tableLicenseCheck) {
@@ -42,14 +58,34 @@ module.exports = function generateMarkdown(data) {
   };
 
   const tableOfContents = tableText => {
-    if (!tableText) {
+    if (!tableText || (!installation && !usage && !license && !contribution && !tests && !github && !email)) {
       return '';
     }
     return `
 ## Table of Contents
-  
-- [Installation](#installation)
-- [Usage](#usage)${tableLicense(license)}${tableContribution(contribution)}${tableTests(tests)}${tableQuestions(github, email)}
+${tableInstallation(installation)}${tableUsage(usage)}${tableLicense(license)}${tableContribution(contribution)}${tableTests(tests)}${tableQuestions(github, email)}
+`;
+  };
+
+  const renderInstallationSection = renderInstallation => {
+    if (!renderInstallation) {
+      return '';
+    }
+    return `
+## Installation
+
+${installation}
+`;
+  };
+
+  const renderUsageSection = renderUsage => {
+    if (!renderUsage) {
+      return '';
+    }
+    return `
+## Usage
+
+${usage}
 `;
   };
 
@@ -60,7 +96,7 @@ module.exports = function generateMarkdown(data) {
     return `
 ## License
   
-* ${license}
+${license}
 `;
   };
 
@@ -71,7 +107,7 @@ module.exports = function generateMarkdown(data) {
     return `
 ## Contribution
 
-* ${contribution}
+${contribution}
 `;
   };
 
@@ -82,7 +118,7 @@ module.exports = function generateMarkdown(data) {
     return `
 ## Tests
 
-* ${tests}    
+${tests}    
 `;
   };
 
@@ -93,18 +129,18 @@ module.exports = function generateMarkdown(data) {
       return `
 ## Questions
   
-* https://github.com/${github}`;
+https://github.com/${github}`;
     } else if (!renderGithub && renderEmail) {
       return `
 ## Questions
   
-* You can reach me at ${email} with additional questions!`;
+You can reach me at ${email} with additional questions!`;
     } else {
       return `
 ## Questions
   
-* https://github.com/${github}
-* You can reach me at ${email} with additional questions!`;
+https://github.com/${github}
+You can reach me at ${email} with additional questions!`;
     }
   };
 
@@ -112,14 +148,6 @@ module.exports = function generateMarkdown(data) {
 
 ## Description
 
-* ${header.description}
-${tableOfContents(table)}
-## Installation
-
-* ${header.installation}
-
-## Usage
-
-* ${header.usage}
-${renderLicenseSection(license)}${renderContributionSection(contribution)}${renderTestsSection(tests)}${renderQuestionsSection(github, email)}`;
+${header.description}
+${tableOfContents(table)}${renderInstallationSection(installation)}${renderUsageSection(usage)}${renderLicenseSection(license)}${renderContributionSection(contribution)}${renderTestsSection(tests)}${renderQuestionsSection(github, email)}`;
 };
